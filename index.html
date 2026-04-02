@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Alifiya ❤️</title>
 
 <style>
@@ -11,42 +13,38 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     text-align: center;
-    overflow: hidden;
     color: white;
+    overflow-x: hidden;
 }
 
-/* Glass card */
+/* Container */
 .container {
-    margin-top: 100px;
-    padding: 30px;
+    margin: 60px 15px;
+    padding: 20px;
     background: rgba(255,255,255,0.1);
     border-radius: 20px;
-    display: inline-block;
     backdrop-filter: blur(10px);
 }
 
-/* Typing effect */
+/* Title */
 #typing {
-    font-size: 38px;
-    font-weight: bold;
+    font-size: 28px;
 }
 
-/* Message */
+/* Text */
 p {
-    font-size: 18px;
-    max-width: 500px;
-    margin: 20px auto;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 /* Buttons */
 button {
-    padding: 12px 25px;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 30px;
+    border-radius: 25px;
+    margin: 8px;
     cursor: pointer;
-    margin: 10px;
-    transition: 0.3s;
 }
 
 #yesBtn {
@@ -57,16 +55,19 @@ button {
 #noBtn {
     background: white;
     color: #ff4d6d;
-    position: absolute;
+    position: fixed;
 }
 
-button:hover {
-    transform: scale(1.1);
+/* Celebration */
+#celebration {
+    display: none;
+    margin-top: 120px;
+    font-size: 24px;
 }
 
-/* Floating hearts */
+/* Hearts */
 .heart {
-    position: absolute;
+    position: fixed;
     animation: float 6s linear infinite;
 }
 
@@ -75,11 +76,10 @@ button:hover {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* Celebration */
-#celebration {
-    display: none;
-    margin-top: 150px;
-    font-size: 30px;
+/* Mobile tweak */
+@media (max-width: 480px) {
+    #typing { font-size: 24px; }
+    p { font-size: 14px; }
 }
 </style>
 </head>
@@ -90,28 +90,21 @@ button:hover {
     <h1 id="typing"></h1>
 
     <p>
-        You came into my life quietly, but changed everything.  
+        You came into my life quietly, but changed everything 💖  
         Every moment with you feels magical ✨  
-        My heart found its home in you 💖  
+        My heart belongs to you ❤️  
     </p>
 
     <h2>Will You Be Mine? 💍</h2>
 
     <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
-    <button id="noBtn" onmouseover="moveButton()">No 😢</button>
-
-    <br><br>
-    <button onclick="playMusic()">🎵 Play Music</button>
+    <button id="noBtn" ontouchstart="moveButton()">No 😢</button>
 </div>
 
 <div id="celebration">
     💖 She Said YES! 💖<br>
     💍 Best Day Ever 😍
 </div>
-
-<audio id="music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
-</audio>
 
 <script>
 // Typing effect
@@ -126,35 +119,30 @@ function typingEffect() {
 }
 typingEffect();
 
-// Yes click
+// YES
 function yesClicked() {
     document.querySelector(".container").style.display = "none";
     document.getElementById("celebration").style.display = "block";
 }
 
-// Moving No button
+// Move NO button
 function moveButton() {
     let btn = document.getElementById("noBtn");
-    btn.style.left = Math.random() * window.innerWidth + "px";
-    btn.style.top = Math.random() * window.innerHeight + "px";
+    btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
 }
 
-// Music
-function playMusic() {
-    document.getElementById("music").play();
-}
-
-// Floating hearts
+// Hearts
 setInterval(() => {
     let heart = document.createElement("div");
     heart.innerHTML = "❤️";
     heart.classList.add("heart");
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heart.style.fontSize = (Math.random() * 10 + 15) + "px";
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 6000);
-}, 300);
+}, 400);
 </script>
 
 </body>
