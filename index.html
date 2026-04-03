@@ -1,222 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Alifiya ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-    :root {
-        --primary-pink: #ff4d6d;
-        --soft-pink: #ff758c;
-        --glass-bg: rgba(255, 255, 255, 0.15);
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        color: white;
-    }
-
-    /* Modern Glassmorphism Container */
-    .container {
-        width: 90%;
-        max-width: 450px;
-        padding: 40px 20px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.5s ease;
-        z-index: 10;
-    }
-
-    /* Typography */
-    h1 {
-        font-family: 'Dancing Script', cursive;
-        font-size: 3.5rem;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .quote-box {
-        font-size: 0.95rem;
-        font-style: italic;
-        margin: 20px 0;
-        opacity: 0.9;
-        line-height: 1.6;
-    }
-
-    h2 {
-        font-weight: 600;
-        margin-top: 30px;
-    }
-
-    /* Buttons */
-    .btn-group {
-        margin-top: 30px;
-        position: relative;
-        height: 60px;
-    }
-
-    button {
-        padding: 12px 35px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-family: 'Poppins', sans-serif;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    #yesBtn {
-        background: white;
-        color: var(--primary-pink);
-    }
-
-    #yesBtn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
-    }
-
-    #noBtn {
-        background: var(--primary-pink);
-        color: white;
-        position: absolute;
-        white-space: nowrap;
-    }
-
-    /* Celebration State */
-    #celebration {
-        display: none;
-        animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    @keyframes zoomIn {
-        from { transform: scale(0); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-
-    /* Background Floating Hearts */
-    .heart {
-        position: fixed;
-        top: -10%;
-        user-select: none;
-        pointer-events: none;
-        z-index: 1;
-        animation: fall linear forwards;
-    }
-
-    @keyframes fall {
-        to {
-            transform: translateY(110vh) rotate(360deg);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message for Alifiya ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff758c;
+            --bg: #fff5f6;
         }
-    }
 
-    /* Custom Scrollbar for mobile */
-    ::-webkit-scrollbar { width: 0; }
-</style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* --- ENVELOPE STYLES --- */
+        .envelope-wrapper {
+            position: relative;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: var(--secondary);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            border-top: 110px solid var(--primary);
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            transform-origin: top;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .envelope::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-left: 150px solid var(--secondary);
+            border-right: 150px solid var(--secondary);
+            border-bottom: 100px solid var(--secondary);
+            bottom: 0;
+            border-radius: 10px;
+        }
+
+        .letter {
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background: white;
+            z-index: 0;
+            transition: all 0.5s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            text-align: center;
+            color: var(--primary);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+
+        /* Open State */
+        .envelope-wrapper.open .envelope::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        .envelope-wrapper.open .letter {
+            transform: translateY(-120px);
+            height: 180px;
+            z-index: 2;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* --- MAIN CONTENT (HIDDEN INITIALLY) --- */
+        #mainCard {
+            display: none;
+            width: 90%;
+            max-width: 450px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--primary); }
+
+        .reason-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 15px 0;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .reason-btn:hover { background: var(--primary); color: white; }
+
+        #reasonText { font-style: italic; min-height: 24px; margin: 10px 0; font-size: 0.9rem; color: #555; }
+
+        .yes-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        #noBtn {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 25px;
+            border-radius: 50px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .heart { position: fixed; top: -10%; animation: fall linear forwards; z-index: -1; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+    </style>
 </head>
 <body>
 
-    <div class="container" id="mainCard">
-        <h1 id="typing"></h1>
-        
-        <div class="quote-box">
-            "In all the world, there is no heart for me like yours. <br>
-            In all the world, there is no love for you like mine."
-        </div>
-
-        <p style="font-weight: 300;">Every moment with you feels like a dream I never want to wake up from. ✨</p>
-
-        <h2>Will You Be Mine? 💍</h2>
-
-        <div class="btn-group">
-            <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
-            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No 😢</button>
+    <div class="envelope-wrapper" id="envelopeWrapper" onclick="openLetter()">
+        <div class="envelope">
+            <div class="letter">
+                Tap to open... ❤️
+            </div>
         </div>
     </div>
 
-    <div class="container" id="celebration">
-        <h1 style="font-size: 4rem;">Yay! ❤️</h1>
-        <p style="font-size: 1.2rem;">You've made me the happiest person alive, Alifiya!</p>
-        <div style="font-size: 3rem;">💍✨🌹</div>
-        <p style="margin-top: 20px; font-style: italic;">"I love you more than words can ever say."</p>
+    <div id="mainCard">
+        <h1 id="typing"></h1>
+        
+        <p>I built this little space just for you.</p>
+
+        <button class="reason-btn" onclick="nextReason()">Click for a reason why ❤️</button>
+        <div id="reasonText">Click the button above...</div>
+
+        <h2 style="margin-top: 30px;">Will You Be Mine?</h2>
+
+        <div style="height: 100px; position: relative;">
+            <button class="yes-btn" onclick="celebrate()">Yes 💕</button>
+            <button id="noBtn" onmouseover="moveNo()">No 😢</button>
+        </div>
+    </div>
+
+    <div id="celebration" style="display:none; text-align: center;">
+        <h1 style="font-size: 4rem;">YES! ❤️</h1>
+        <p>I'm the luckiest person to have you, Alifiya.</p>
+        <div style="font-size: 3rem;">💍🌸✨</div>
     </div>
 
 <script>
-    // Improved Typing effect
     const name = "Alifiya ❤️";
-    let charIndex = 0;
-    function typingEffect() {
-        if (charIndex < name.length) {
-            document.getElementById("typing").innerHTML += name.charAt(charIndex);
-            charIndex++;
-            setTimeout(typingEffect, 150);
-        }
-    }
-    window.onload = typingEffect;
+    const reasons = [
+        "Your smile lights up my entire world.",
+        "The way you understand me without words.",
+        "Your kindness makes me want to be a better person.",
+        "Every small moment with you is a big memory for me.",
+        "Simply because you are YOU."
+    ];
+    let reasonIndex = 0;
 
-    // Success Action
-    function yesClicked() {
-        document.getElementById("mainCard").style.display = "none";
-        document.getElementById("celebration").style.display = "block";
-        // Trigger extra hearts
-        for(let i=0; i<50; i++) {
-            setTimeout(createHeart, i * 50);
-        }
-    }
-
-    // Modern Button Move (Faster & Smoother)
-    function moveButton() {
-        const btn = document.getElementById("noBtn");
-        // Constrain movement within the viewport
-        const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
-        const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+    function openLetter() {
+        const wrapper = document.getElementById('envelopeWrapper');
+        wrapper.classList.add('open');
         
-        btn.style.position = "fixed";
+        // After letter rises, switch to main card
+        setTimeout(() => {
+            wrapper.style.transition = "1s";
+            wrapper.style.opacity = "0";
+            wrapper.style.transform = "scale(0.5)";
+            setTimeout(() => {
+                wrapper.style.display = "none";
+                document.getElementById('mainCard').style.display = "block";
+                startTyping();
+            }, 1000);
+        }, 1500);
+    }
+
+    function startTyping() {
+        let i = 0;
+        const target = document.getElementById("typing");
+        function type() {
+            if (i < name.length) {
+                target.innerHTML += name.charAt(i);
+                i++;
+                setTimeout(type, 150);
+            }
+        }
+        type();
+    }
+
+    function nextReason() {
+        const text = document.getElementById('reasonText');
+        text.style.opacity = 0;
+        setTimeout(() => {
+            text.innerHTML = reasons[reasonIndex];
+            text.style.opacity = 1;
+            reasonIndex = (reasonIndex + 1) % reasons.length;
+        }, 300);
+    }
+
+    function moveNo() {
+        const btn = document.getElementById("noBtn");
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
         btn.style.left = x + "px";
         btn.style.top = y + "px";
+        btn.style.position = "fixed";
     }
 
-    // Enhanced Floating Hearts
+    function celebrate() {
+        document.getElementById("mainCard").style.display = "none";
+        document.body.style.backgroundColor = "#fff";
+        document.getElementById("celebration").style.display = "block";
+        setInterval(createHeart, 200);
+    }
+
     function createHeart() {
         const heart = document.createElement("div");
-        heart.innerHTML = ["❤️", "💖", "💝", "✨", "🌸"][Math.floor(Math.random() * 5)];
+        heart.innerHTML = ["❤️", "💖", "✨", "🌸"][Math.floor(Math.random() * 4)];
         heart.classList.add("heart");
-        
-        const startLeft = Math.random() * 100;
-        const duration = Math.random() * 3 + 3;
-        const size = Math.random() * 20 + 15;
-
-        heart.style.left = startLeft + "vw";
-        heart.style.fontSize = size + "px";
-        heart.style.animationDuration = duration + "s";
-        heart.style.opacity = Math.random();
-
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
         document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, duration * 1000);
+        setTimeout(() => heart.remove(), 5000);
     }
-
-    setInterval(createHeart, 300);
 </script>
-
 </body>
 </html>
